@@ -28,4 +28,17 @@ irm "http://127.0.0.1:8000/articles?since=2025-12-21T00:00:00Z"
 irm "http://127.0.0.1:8000/articles?limit=2&offset=1"
 ```
 
+### Get an article by id
+```powershell
+irm "http://127.0.0.1:8000/articles/1"
+```
+
+---
+
+## Run and verify locally (fast)
+Make sure your API is running:
+```powershell
+python -m uvicorn apps.api.main:app --reload --host 127.0.0.1 --port 8000
+```
+
 
