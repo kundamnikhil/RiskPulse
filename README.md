@@ -5,11 +5,21 @@ RiskPulse extracts structured risk/event signals from unstructured text (news, f
 ## Today (MVP v0)
 - FastAPI service
 - Postgres via Docker
-- Articles ingestion + listing
+- Articles ingestion + listing + filters (source, q, since, limit, offset)
+- Health endpoint
 
 ## Run locally
-### Start DB
+
+### Prereqs
+- Python 3.12+
+- Docker Desktop
+
+### 1) Start DB
+From the repo root:
+```powershell
 docker compose up -d
+docker ps
+
 
 ### Run API
 ```powershell
