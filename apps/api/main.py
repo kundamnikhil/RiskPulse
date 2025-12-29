@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from .db import Base, engine
+from dotenv import load_dotenv
+load_dotenv()
 from .routes.articles import router as articles_router
 
 app = FastAPI(title="RiskPulse", version="0.1.0")
