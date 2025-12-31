@@ -51,4 +51,12 @@ Make sure your API is running:
 python -m uvicorn apps.api.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
+## Demo command
+```
+$body = @{ items = @(
+  @{ title="Fed action"; content="..."; source="manual"; url=$null },
+  @{ title="Sanctions"; content="..."; source="manual"; url="https://example.com/a" }
+)} | ConvertTo-Json -Depth 5
 
+irm -Method Post "http://127.0.0.1:8000/articles/bulk" -ContentType "application/json" -Body $body
+```
