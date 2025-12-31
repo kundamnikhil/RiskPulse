@@ -18,3 +18,11 @@ class ArticleOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+from pydantic import BaseModel
+
+class SignalOut(BaseModel):
+    type: str
+    confidence: float
+    keywords: list[str]
+
