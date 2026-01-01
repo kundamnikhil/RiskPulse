@@ -60,3 +60,10 @@ $body = @{ items = @(
 
 irm -Method Post "http://127.0.0.1:8000/articles/bulk" -ContentType "application/json" -Body $body
 ```
+
+## Stats commands check
+```
+irm "http://127.0.0.1:8000/stats/daily?days=14"
+irm "http://127.0.0.1:8000/stats/daily?days=14&source=manual"
+irm "http://127.0.0.1:8000/stats/sources?days=30"
+```
