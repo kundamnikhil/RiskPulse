@@ -1,0 +1,40 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 9aaff20..5852950 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -5,11 +5,21 @@[m [mRiskPulse extracts structured risk/event signals from unstructured text (news, f[m
+ ## Today (MVP v0)[m
+ - FastAPI service[m
+ - Postgres via Docker[m
+[31m-- Articles ingestion + listing[m
+[32m+[m[32m- Articles ingestion + listing + filters (source, q, since, limit, offset)[m
+[32m+[m[32m- Health endpoint[m
+ [m
+ ## Run locally[m
+[31m-### Start DB[m
+[32m+[m
+[32m+[m[32m### Prereqs[m
+[32m+[m[32m- Python 3.12+[m
+[32m+[m[32m- Docker Desktop[m
+[32m+[m
+[32m+[m[32m### 1) Start DB[m
+[32m+[m[32mFrom the repo root:[m
+[32m+[m[32m```powershell[m
+ docker compose up -d[m
+[32m+[m[32mdocker ps[m
+[32m+[m
+ [m
+ ### Run API[m
+ ```powershell[m
+[1mdiff --git a/apps/api/main.py b/apps/api/main.py[m
+[1mindex 8c36ccf..ca56058 100644[m
+[1m--- a/apps/api/main.py[m
+[1m+++ b/apps/api/main.py[m
+[36m@@ -1,5 +1,7 @@[m
+ from fastapi import FastAPI[m
+ from .db import Base, engine[m
+[32m+[m[32mfrom dotenv import load_dotenv[m
+[32m+[m[32mload_dotenv()[m
+ from .routes.articles import router as articles_router[m
+ [m
+ app = FastAPI(title="RiskPulse", version="0.1.0")[m
