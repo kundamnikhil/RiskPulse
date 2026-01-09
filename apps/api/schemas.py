@@ -26,3 +26,13 @@ class SignalOut(BaseModel):
     confidence: float
     keywords: list[str]
 
+from datetime import date
+from pydantic import BaseModel
+
+class DailyCountOut(BaseModel):
+    day: date
+    count: int
+
+class SourceCountOut(BaseModel):
+    source: str
+    count: int
